@@ -3,7 +3,7 @@ describe("This test is to verify that CRUD operations can be performed on the qu
 
     let courseId = "";
 
-    it("Verify user can create a course using the POST method", () => {
+    it.only("Verify user can create a course using the POST method", () => {
       const baseUrl = "https://api.quales.tech/";  
       const path = "api/courses/";
       cy.api({
@@ -27,6 +27,7 @@ describe("This test is to verify that CRUD operations can be performed on the qu
         // Assertions or Tests
         expect(res.status).to.eq(200);
         expect(responseBody).to.have.property("title");
+        expect(responseBody.title).to.eq('API Testing Using Cypress');
         expect(responseBody).to.have.property("description");
       }); 
     });
